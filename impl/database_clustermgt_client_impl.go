@@ -29,10 +29,30 @@ func (client *DatabaseClusterMgtClientImpl) FindCurrentWriteShard(tableName, res
 	params.Add("table-name", tableName)
 	params.Add("resource-id", resourceID)
 	encodedParams := params.Encode()
-	fmt.Println("encodedParams=" + encodedParams)
+	log.Println("encodedParams=" + encodedParams)
 	finalUrl := baseUrl + "?" + encodedParams
-	fmt.Println("finalUrl=" + finalUrl)
+	log.Println("finalUrl=" + finalUrl)
+
 	var resp model.DatabaseShard
 	appErr := restClient.Get(finalUrl, &resp)
 	return &resp, appErr
+}
+
+func (client *DatabaseClusterMgtClientImpl) FindAllShardsByTable(tableName string) ([]*model.DatabaseShard, errorlib.AppError) {
+	restClient := restclientlib.NewRestClient()
+	hostPort := client.HostPort()
+
+	baseUrl := hostPort + "/" + findAllShardsByTableUrl
+	log.Println("url =", baseUrl)
+	params := url.Values{}
+	params.Add("table-name", tableName)
+	encodedParams := params.Encode()
+	log.Println("encodedParams=" + encodedParams)
+	finalUrl := baseUrl + "?" + encodedParams
+	log.Println("finalUrl=" + finalUrl)
+
+	var resp []*model.DatabaseShard
+	appErr := restClient.Get(finalUrl, &resp)
+	log.Println(resp)
+	return resp, appErr
 }

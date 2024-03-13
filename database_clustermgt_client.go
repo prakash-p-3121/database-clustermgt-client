@@ -7,4 +7,5 @@ import (
 
 type DatabaseClusterMgtClient interface {
 	FindCurrentWriteShard(tableName string, resourceID string) (*model.DatabaseShard, errorlib.AppError)
+	FindAllShardsByTable(tableName string) ([]*model.DatabaseShard, errorlib.AppError)
 }
