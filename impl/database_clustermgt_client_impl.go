@@ -15,7 +15,7 @@ type DatabaseClusterMgtClientImpl struct {
 }
 
 func (client *DatabaseClusterMgtClientImpl) HostPort() string {
-	return fmt.Sprintf("https://%s:%d", client.Host, client.Port)
+	return fmt.Sprintf("%s:%d", client.Host, client.Port)
 }
 
 func (client *DatabaseClusterMgtClientImpl) FindCurrentWriteShard(tableName, resourceID string) (*model.DatabaseShard, errorlib.AppError) {
