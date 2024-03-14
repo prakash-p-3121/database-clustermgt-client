@@ -22,7 +22,7 @@ func (client *DatabaseClusterMgtClientImpl) FindCurrentWriteShard(tableName, res
 	restClient := restclientlib.NewRestClient()
 	hostPort := client.HostPort()
 
-	baseUrl := hostPort + "/" + findCurrentWriteShardUrl
+	baseUrl := hostPort + findCurrentWriteShardUrl
 	log.Println("url =", baseUrl)
 
 	params := url.Values{}
@@ -42,7 +42,7 @@ func (client *DatabaseClusterMgtClientImpl) FindAllShardsByTable(tableName strin
 	restClient := restclientlib.NewRestClient()
 	hostPort := client.HostPort()
 
-	baseUrl := hostPort + "/" + findAllShardsByTableUrl
+	baseUrl := hostPort + findAllShardsByTableUrl
 	log.Println("url =", baseUrl)
 	params := url.Values{}
 	params.Add("table-name", tableName)
