@@ -18,11 +18,11 @@ func (client *DatabaseClusterMgtClientImpl) HostPort() string {
 	return fmt.Sprintf("%s:%d", client.Host, client.Port)
 }
 
-func (client *DatabaseClusterMgtClientImpl) FindCurrentWriteShard(tableName, resourceID string) (*model.DatabaseShard, errorlib.AppError) {
+func (client *DatabaseClusterMgtClientImpl) FindShard(tableName, resourceID string) (*model.DatabaseShard, errorlib.AppError) {
 	restClient := restclientlib.NewRestClient()
 	hostPort := client.HostPort()
 
-	baseUrl := hostPort + findCurrentWriteShardUrl
+	baseUrl := hostPort + findShardUrl
 	log.Println("url =", baseUrl)
 
 	params := url.Values{}
