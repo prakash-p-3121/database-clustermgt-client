@@ -3,6 +3,12 @@ module github.com/prakash-p-3121/database-clustermgt-client
 go 1.22.1
 
 require (
+	github.com/prakash-p-3121/database-clustermgt-model v0.0.7
+	github.com/prakash-p-3121/errorlib v0.0.8
+	github.com/prakash-p-3121/restclientlib v0.0.4
+)
+
+require (
 	github.com/bytedance/sonic v1.11.3 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20230717121745-296ad89f973d // indirect
 	github.com/chenzhuoyu/iasm v0.9.1 // indirect
@@ -21,10 +27,8 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pelletier/go-toml/v2 v2.1.1 // indirect
-	github.com/prakash-p-3121/database-clustermgt-model v0.0.6 // indirect
-	github.com/prakash-p-3121/errorlib v0.0.7 // indirect
-	github.com/prakash-p-3121/restclientlib v0.0.3 // indirect
-	github.com/prakash-p-3121/restlib v0.0.5 // indirect
+	github.com/prakash-p-3121/restlib v0.0.11 // indirect
+	github.com/prakash-p-3121/tomllib v0.0.2 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.12 // indirect
 	golang.org/x/arch v0.7.0 // indirect
